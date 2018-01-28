@@ -18,7 +18,7 @@ if (fs.existsSync(filePath)) {
 const getUrl = id => urls.find(u => u.id === id)
 
 /**
- * Formats then dds url to list
+ * Formats then adds url to list
  * @param {string} url Url to add
  * @returns {object} Url object
  */
