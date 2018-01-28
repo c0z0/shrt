@@ -3,6 +3,16 @@
 # shrt
 Little link shortening microservice
 
+## Get started
+```
+$ git clone https://github.com/c0z0/shrt.git
+$ cd shrt
+$ npm install
+$ npm start
+```
+
+<b> If `MONGO_URL` enviorment variable is not containing a MongoDB url the app saves data in `data.json` in the root folder.</b>
+
 ## API
 
 #### Route `/sh`
