@@ -23,7 +23,7 @@ const addUrl = async url => {
 
 	const newUrl = await Url.create({ url })
 
-	return newUrl
+	return { url: newUrl.url, id: newUrl._id }
 }
 /**
  * Finds and returns a url by id
@@ -33,7 +33,7 @@ const addUrl = async url => {
 const getUrl = async id => {
 	const foundUrl = await Url.findById(id)
 
-	return foundUrl
+	return { url: foundUrl.url, id: foundUrl._id }
 }
 
 module.exports = { addUrl, getUrl }
