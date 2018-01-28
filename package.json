@@ -6,7 +6,8 @@
   "author": "Cosmin Serdean <cosmoserdean@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "micro": "^9.1.0"
+    "micro": "^9.1.0",
+    "shortid": "^2.2.8"
   },
   "scripts": {
     "start": "micro"
