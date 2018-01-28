@@ -26,5 +26,9 @@ module.exports = async (req, res) => {
 		if (foundUrl) return redirect(res, 308, foundUrl.url)
 	}
 
+	if (parsedUrl.pathname === '/' && req.method === 'GET') {
+		send(res, '200', 'SHRT API')
+	}
+
 	send(res, 404, 'Not Found')
 }
