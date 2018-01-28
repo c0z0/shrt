@@ -13,5 +13,11 @@
 	"scripts": {
 		"start": "micro",
 		"dev": "nodemon --ignore data.json --exec yarn start"
+	},
+	"now": {
+		"env": {
+			"MONGO_URL": "@shrtn_url"
+		},
+		"alias": "sh.cserdean.me"
 	}
 }
