@@ -3,7 +3,9 @@ const url = require('url')
 const shortid = require('shortid')
 const redirect = require('./redirect')
 
-const { addUrl, getUrl } = require('./fsDataLayer')
+const { addUrl, getUrl } = require(process.env.MONGO_URL
+	? './db'
+	: './fsDataLayer')
 
 const addRoute = /\/sh\/?/g
 
@@ -15,13 +17,15 @@ module.exports = async (req, res) => {
 
 		if (!data || !data.url) return send(res, 400, 'URL field not present')
 
-		const newUrl = addUrl(data.url)
+		const newUrl = await addUrl(data.url)
 
 		return send(res, 200, newUrl)
 	}
 
 	if (shortid.isValid(parsedUrl.pathname.slice(1)) && req.method === 'GET') {
-		const foundUrl = getUrl(parsedUrl.pathname.slice(1))
+		const foundUrl = await getUrl(parsedUrl.pathname.slice(1))
+
+		console.log(foundUrl)
 
 		if (foundUrl) return redirect(res, 308, foundUrl.url)
 	}

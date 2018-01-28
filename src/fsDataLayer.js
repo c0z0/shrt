@@ -2,6 +2,8 @@ const shortid = require('shortid')
 const fs = require('fs')
 const path = require('path')
 
+console.log('Using fs persistence')
+
 const urls = []
 
 const filePath = path.join(__dirname, '../data.json')
@@ -15,14 +17,14 @@ if (fs.existsSync(filePath)) {
  * @param {string} id Id of url
  * @returns {object} Found url or undefined
  */
-const getUrl = id => urls.find(u => u.id === id)
+const getUrl = async id => urls.find(u => u.id === id)
 
 /**
  * Formats then adds url to list
  * @param {string} url Url to add
  * @returns {object} Url object
  */
-const addUrl = url => {
+const addUrl = async url => {
 	if (
 		url.slice(0, 'https://'.length) !== 'https://' &&
 		url.slice(0, 'http://'.length) !== 'http://'
