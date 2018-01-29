@@ -19,6 +19,6 @@
 		"env": {
 			"MONGO_URL": "@shrtn_url"
 		},
-		"alias": "sh.cserdean.me"
+		"alias": "s.cserdean.me"
 	}
 }
